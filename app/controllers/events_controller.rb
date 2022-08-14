@@ -21,7 +21,11 @@ class EventsController < ApplicationController
 
   def destroy
   end
-
+  private
+  
+  def set_event
+    @event = current_user.events
+  end
   def event_params
     params.require(:event).permit(:creator_id)
   end
