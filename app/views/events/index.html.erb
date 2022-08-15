@@ -1,5 +1,5 @@
 <h1>My Events</h1>
-<%= link_to "New Event", new_user_event_path %>
+<%= link_to "New Event", new_user_event_path(:id) %>
 <% if current_user.created_events.any? %>
     <div id="events">
     <% current_user.created_events.each do |event| %>
