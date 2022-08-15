@@ -1,8 +1,8 @@
 <h1>My Events</h1>
-<%= link_to "New Event", new_user_event %>
-<% if current_user.events.any? %>
+<%= link_to "New Event", new_user_event_path %>
+<% if current_user.created_events.any? %>
     <div id="events">
-    <% current_user.events.each do |event| %>
+    <% current_user.created_events.each do |event| %>
         <li>
         <%= link_to event.created_at, event_path(event) %>
         </li>
