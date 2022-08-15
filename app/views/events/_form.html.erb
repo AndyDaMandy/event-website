@@ -1,0 +1,28 @@
+<%= form_with model: event do |form| %>
+  <% if event.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(event.errors.count, "error") %> prohibited this mood from being saved:</h2>
+
+      <ul>
+        <% event.errors.each do |event| %>
+          <li><%= event.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :location, style: "display: block" %>
+    <%= form.label :location, "Location - Please enter it in below" %>
+    <%= form.text_field :location %>
+  </div>
+
+  <div>
+    <%= form.label :date, style: "display: block" %> 
+    <%= form.label :date, "Date - Please select a date below" %>
+    <%= form.date_select, :date, start_year: Time.now.year %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
