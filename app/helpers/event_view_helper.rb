@@ -1,0 +1,2 @@
+module EventViewHelper
+end

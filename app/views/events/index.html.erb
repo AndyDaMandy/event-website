@@ -1,4 +1,5 @@
 <h1>My Events</h1>
+<p><%= link_to "View all created events", event_view_index_path %></p>
 <%= link_to "New Event", new_user_event_path(:id) %>
 <% if current_user.created_events.any? %>
     <div id="events">
