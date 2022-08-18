@@ -26,7 +26,4 @@ class EventsController < ApplicationController
   def set_event
     @event = current_user.created_events
   end
-  def event_params
-    params.require(:event).permit(:creator_id)
-  end
 end
