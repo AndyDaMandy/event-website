@@ -14,6 +14,7 @@ class EventsController < ApplicationController
     @event = current_user.created_events.find(params[:id])
   end
   def create
+    
   end
 
   def update
