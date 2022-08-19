@@ -20,7 +20,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to event_url(@event), notice: "Mood was successfully created." }
+        format.html { redirect_to user_events_url(@event), notice: "Event was successfully created." }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -32,7 +32,7 @@ class EventsController < ApplicationController
     @event = current_user.created_events.find(params[:id])
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to mood_url(@event), notice: "Mood was successfully updated." }
+        format.html { redirect_to user_events_url(@event), notice: "Event was successfully updated." }
         format.json { render :show, status: :ok, location: @event }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -57,6 +57,6 @@ class EventsController < ApplicationController
     @event = current_user.created_events
   end
   def event_params
-    params.require(:created_vents).permit(:date, :location, :creator_id)
+    params.require(:event).permit(:date, :location, :title, :creator_id)
   end
 end

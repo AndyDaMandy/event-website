@@ -3,7 +3,7 @@
 <div id="events">
     <% Event.each do |event| %>
         <li>
-        <%= link_to event.created_at, event_path(event) %>
+        <%= link_to event.title, event_path(event) %>
         </li>
     </div>
     <% end %>
