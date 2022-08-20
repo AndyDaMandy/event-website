@@ -5,6 +5,6 @@ class ApplicationController < ActionController::Base
         user_events_path(current_user)
      end
      def after_sign_out_path_for(resource)
-         root_path
+         new_user_session_path
      end
 end

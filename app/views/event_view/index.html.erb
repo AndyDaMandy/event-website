@@ -1,9 +1,9 @@
 <h1>All Events</h1>
 <p><%= link_to "Go to my created events", user_events_path(:id) %></p>
 <div id="events">
-    <% Event.each do |event| %>
+    <% @events.each do |event| %>
         <li>
-        <%= link_to event.title, event_path(event) %>
+        <%= link_to "#{event.title} - Created by: #{User.find(event.creator_id).email}", event_view_path(event) %>
         </li>
     </div>
     <% end %>
