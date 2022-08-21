@@ -15,7 +15,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_21_142257) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "attendee_id"
-    t.integer "attended_event_id"
+    t.integer "event_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -40,7 +40,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_21_142257) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "event_attendings", "events", column: "attended_event_id"
+  add_foreign_key "event_attendings", "events"
   add_foreign_key "event_attendings", "users", column: "attendee_id"
   add_foreign_key "events", "users", column: "attendee_id"
   add_foreign_key "events", "users", column: "creator_id"
