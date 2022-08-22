@@ -24,7 +24,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_21_142257) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "creator_id"
-    t.integer "attendee_id"
     t.string "title"
   end
 
@@ -42,6 +41,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_21_142257) do
 
   add_foreign_key "event_attendings", "events"
   add_foreign_key "event_attendings", "users", column: "attendee_id"
-  add_foreign_key "events", "users", column: "attendee_id"
   add_foreign_key "events", "users", column: "creator_id"
 end

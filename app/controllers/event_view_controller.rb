@@ -16,7 +16,6 @@ class EventViewController < ApplicationController
     def attend
         @user = current_user
         @event = Event.find(params[:id])
-        if
     end
 
 end
