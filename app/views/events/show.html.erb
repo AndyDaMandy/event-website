@@ -5,13 +5,17 @@
 <%= @event.date %>
 <h2>Event Creator</h2>
 <p><%= User.find(@event.creator_id).email%> </p>
+<h2>Attendees</h2>
+    <ul>
+    <% @event.attendees.each do |attendee| %>
+        <li>
+            <%= attendee.email %>
+        </li>
+        <% end %>
+    </ul>
 <div>
     <% if current_user == @event.creator %>
         <%= link_to 'Edit' edit_event_path %>
         <%= link_to 'Delete' event_path, data: { confirm: "Delete this event?"} %>
-    <% elsif @event.attendees.include?(current_user) %>
-        <%= link_to "Cancel Attending Event", un_attend_path%>
-    <% else %>
-    <% link_to "Attend event", attend_path %>
     <% end %>
 </div>

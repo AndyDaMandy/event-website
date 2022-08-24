@@ -52,21 +52,6 @@ class EventsController < ApplicationController
     end
   end
 
-  def attend
-    @event = Event.find(params[:id])
-    if @event.attendees.include?(current_user)
-        redirect_to @event, notice: "You cannot join an event you're already attending"
-    else
-        @event.attendees.push(current_user)
-    end
-  end
-
-  def remove_attend
-    @event = Event.find(params[:id])
-    @event.attendees.delete(current_user)
-    redirect_to @event, notice: "You have been removed from this event"
-  end
-
   private
   
   def set_event
