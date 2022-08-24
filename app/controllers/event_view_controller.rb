@@ -11,18 +11,19 @@ class EventViewController < ApplicationController
     end
 
     def attend
-        @event = Event.find(params[:id])
+        @event = Event.find(params[:event_view_id])
         if @event.attendees.include?(current_user)
             redirect_to @event, notice: "You cannot join an event you're already attending"
         else
             @event.attendees.push(current_user)
+            redirect_to event_view_path(@event), notice: "You've been added to this event!"
         end
       end
     
       def remove_attend
-        @event = Event.find(params[:id])
+        @event = Event.find(params[:event_view_id])
         @event.attendees.delete(current_user)
-        redirect_to @event, notice: "You have been removed from this event"
+        redirect_to event_view_path(@event), notice: "You have been removed from this event"
       end
 
       def update
